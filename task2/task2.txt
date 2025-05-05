@@ -1,0 +1,39 @@
+Copie du code de la task1 dans la task2
+Création d'un directory back-end avec le dockerfile de la task 1, copier api.py
+Création d'un directory front-end, faire un git clone, toujours dans front-end créer un dockerfile et un fichier config
+
+Dockerfile front-end ->
+
+Configuration de Nginx pour le front-end avec le code suivant : 
+
+# Utilisation de la dernière image Nginx 
+FROM nginx:latest
+
+# Copie fichier website à l'endroit approprié dans Nginx
+COPY softy-pinko-front-end/ /var/www/html/softy-pinko-front-end/
+
+# Copie de la configuration de 
+COPY softy-pinko-front-end.conf /etc/nginx/conf.d/default.conf
+
+Configuration du fichier config avec le code suivant :
+
+server {
+    listen 9000;
+    server_name localhost;
+    
+    location / {
+        root /var/www/html/softy-pinko-front-end;
+        index index.html;
+        try_files $uri $uri/ =404;
+    }
+}
+
+Commande à utiliser dans task2/front-end ->
+
+Création de l'image : 
+
+docker build -t softy-pinko-front-end:task2 .
+
+Exécution du conteneur :
+
+docker run -it --rm -p 9000:9000 --name softy-pinko-front-end-task2 softy-pinko-front-end:task2
