@@ -1,0 +1,45 @@
+Pour cette tache juste quelque modification à faire dans le code existant ->
+
+FRONT END
+
+Rajouter de "<h1 id="dynamic-content"></h1>" dans index.html pour du contenu dynamique 
+
+Rajout d'un script javascript à la fin de index.html :
+
+<script>
+    // Load dynamic data from the back-end on port 5252
+    $(function() {
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:5252/api/hello",
+            success: function(data) {
+                console.log(data);
+                $('#dynamic-content').text(data);
+            }
+        });
+    });
+</script>
+
+BACK END
+
+Rajout dans Dockerfile back-end de l'installation de flask-cors 
+
+Rajout de l'import de flask-cors dans api.py
+
+///
+
+Utilisation de deux terminaux, un back et un front pour créer les images et exécuter les conteneurs ->
+
+BACK :
+
+docker build -f ./back-end/Dockerfile -t softy-pinko-back-end:task3 ./back-end
+
+docker run -p 5252:5252 -it --rm --name softy-pinko-back-end-task3 softy-pinko-back-end:task3
+
+FRONT : 
+
+docker build -f ./front-end/Dockerfile -t softy-pinko-front-end:task3 ./front-end
+
+
+docker run -p 9000:9000 -it --rm --name softy-pinko-front-end-task3 softy-pinko-front-end:task3
+
