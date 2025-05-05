@@ -1,0 +1,14 @@
+Création d'un Dockerfile avec :
+- Dernière image d'Ubuntu
+- Installation des packages et upgrade
+- Commande par défaut à run
+
+Utilisation de deux commandes, une de construction et une d'exécution:
+
+Pour construire l'image ->
+
+docker build -t softy-pinko:task0 .
+
+Pour exécuter le conteneur ->
+
+docker run -it --rm --name softy-pinko-task0 softy-pinko:task0
