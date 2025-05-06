@@ -1,0 +1,9 @@
+Pour cette tache ->
+
+Création d'un docker-compose.yml pour définir et gérer plusieurs conteneurs, ici pour gérer le back-end et le front-end.
+
+Utilisation de deux commandes : 
+
+docker-compose build pour créer les images 
+
+docker-compose up pour exécuter les conteneurs et ainsi run le back et le front.

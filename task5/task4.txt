@@ -1,0 +1,6 @@
+Rajout d'un proxy dans le docker-compose.yml
+
+Permet un point d'entrée unique pour toutes les requêtes et ainsi une simplification de la configuration client.
+
+Permet une isolation des services, les ports des serveurs front et back ne sont plus exposés directement à l'extérieur, le proxy est accessible depuis
+l'extérieur avec le port 80.
